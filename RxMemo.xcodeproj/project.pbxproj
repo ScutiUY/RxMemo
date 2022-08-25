@@ -27,6 +27,7 @@
 		F0D292E428B77D8400F5EBBD /* Scene.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0D292E328B77D8400F5EBBD /* Scene.swift */; };
 		F0D292E628B7842100F5EBBD /* SceneCoordinatorType.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0D292E528B7842100F5EBBD /* SceneCoordinatorType.swift */; };
 		F0D292E828B784A600F5EBBD /* SceneCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0D292E728B784A600F5EBBD /* SceneCoordinator.swift */; };
+		F0D292EA28B78B1400F5EBBD /* CommonViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0D292E928B78B1400F5EBBD /* CommonViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -54,6 +55,7 @@
 		F0D292E328B77D8400F5EBBD /* Scene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Scene.swift; sourceTree = "<group>"; };
 		F0D292E528B7842100F5EBBD /* SceneCoordinatorType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneCoordinatorType.swift; sourceTree = "<group>"; };
 		F0D292E728B784A600F5EBBD /* SceneCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneCoordinator.swift; sourceTree = "<group>"; };
+		F0D292E928B78B1400F5EBBD /* CommonViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -145,6 +147,7 @@
 				F0D292DB28B776D300F5EBBD /* MemoDetailViewModel.swift */,
 				F0D292DD28B776E600F5EBBD /* MemoComposeViewModel.swift */,
 				F0D292DF28B7792A00F5EBBD /* ViewModelBindableType.swift */,
+				F0D292E928B78B1400F5EBBD /* CommonViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -313,6 +316,7 @@
 				F0D292E628B7842100F5EBBD /* SceneCoordinatorType.swift in Sources */,
 				F0D292DC28B776D300F5EBBD /* MemoDetailViewModel.swift in Sources */,
 				F0D292AF28B7393900F5EBBD /* AppDelegate.swift in Sources */,
+				F0D292EA28B78B1400F5EBBD /* CommonViewModel.swift in Sources */,
 				F0D292E228B77CD500F5EBBD /* TransitionModel.swift in Sources */,
 				F0D292D828B7765600F5EBBD /* MemoComposeViewController.swift in Sources */,
 				F0D292B128B7393900F5EBBD /* SceneDelegate.swift in Sources */,
