@@ -7,23 +7,18 @@
 
 import UIKit
 
-class MemoDetailViewController: UIViewController {
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+class MemoDetailViewController: UIViewController, ViewModelBindableType {
+    
+    var viewModel: MemoDetailViewModel!
+    
+    func bindViewModel() {
+        
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        self.title = "메모 보기"
+        // Do any additional setup after loading the view.
     }
-    */
 
 }
