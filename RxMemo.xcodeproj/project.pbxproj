@@ -13,6 +13,9 @@
 		F0D292B828B7393B00F5EBBD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F0D292B728B7393B00F5EBBD /* Assets.xcassets */; };
 		F0D292BB28B7393B00F5EBBD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F0D292B928B7393B00F5EBBD /* LaunchScreen.storyboard */; };
 		F0D292C828B766EC00F5EBBD /* Memo.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0D292C728B766EC00F5EBBD /* Memo.swift */; };
+		F0D292CA28B768C000F5EBBD /* MemoStorageType.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0D292C928B768C000F5EBBD /* MemoStorageType.swift */; };
+		F0D292CF28B7696D00F5EBBD /* RxMemo.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = F0D292CD28B7696D00F5EBBD /* RxMemo.xcdatamodeld */; };
+		F0D292D128B7698700F5EBBD /* MemoryStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0D292D028B7698700F5EBBD /* MemoryStorage.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +29,9 @@
 		F0D292BA28B7393B00F5EBBD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F0D292BC28B7393B00F5EBBD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F0D292C728B766EC00F5EBBD /* Memo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Memo.swift; sourceTree = "<group>"; };
+		F0D292C928B768C000F5EBBD /* MemoStorageType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoStorageType.swift; sourceTree = "<group>"; };
+		F0D292CE28B7696D00F5EBBD /* RxMemo.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = RxMemo.xcdatamodel; sourceTree = "<group>"; };
+		F0D292D028B7698700F5EBBD /* MemoryStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoryStorage.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -117,6 +123,9 @@
 		F0D292C528B765D500F5EBBD /* Service */ = {
 			isa = PBXGroup;
 			children = (
+				F0D292CC28B7694B00F5EBBD /* CoreDateStorage */,
+				F0D292CB28B7693E00F5EBBD /* MemoryStorage */,
+				F0D292C928B768C000F5EBBD /* MemoStorageType.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -126,6 +135,22 @@
 			children = (
 			);
 			path = Scene;
+			sourceTree = "<group>";
+		};
+		F0D292CB28B7693E00F5EBBD /* MemoryStorage */ = {
+			isa = PBXGroup;
+			children = (
+				F0D292D028B7698700F5EBBD /* MemoryStorage.swift */,
+			);
+			path = MemoryStorage;
+			sourceTree = "<group>";
+		};
+		F0D292CC28B7694B00F5EBBD /* CoreDateStorage */ = {
+			isa = PBXGroup;
+			children = (
+				F0D292CD28B7696D00F5EBBD /* RxMemo.xcdatamodeld */,
+			);
+			path = CoreDateStorage;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -242,7 +267,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F0D292D128B7698700F5EBBD /* MemoryStorage.swift in Sources */,
+				F0D292CF28B7696D00F5EBBD /* RxMemo.xcdatamodeld in Sources */,
 				F0D292C828B766EC00F5EBBD /* Memo.swift in Sources */,
+				F0D292CA28B768C000F5EBBD /* MemoStorageType.swift in Sources */,
 				F0D292AF28B7393900F5EBBD /* AppDelegate.swift in Sources */,
 				F0D292B128B7393900F5EBBD /* SceneDelegate.swift in Sources */,
 			);
@@ -456,6 +484,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		F0D292CD28B7696D00F5EBBD /* RxMemo.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				F0D292CE28B7696D00F5EBBD /* RxMemo.xcdatamodel */,
+			);
+			currentVersion = F0D292CE28B7696D00F5EBBD /* RxMemo.xcdatamodel */;
+			path = RxMemo.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = F0D292A328B7393900F5EBBD /* Project object */;
 }
