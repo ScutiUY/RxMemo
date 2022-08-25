@@ -16,6 +16,7 @@
 		F0D292CA28B768C000F5EBBD /* MemoStorageType.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0D292C928B768C000F5EBBD /* MemoStorageType.swift */; };
 		F0D292CF28B7696D00F5EBBD /* RxMemo.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = F0D292CD28B7696D00F5EBBD /* RxMemo.xcdatamodeld */; };
 		F0D292D128B7698700F5EBBD /* MemoryStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0D292D028B7698700F5EBBD /* MemoryStorage.swift */; };
+		F0D292D428B774AD00F5EBBD /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0D292D328B774AD00F5EBBD /* ViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,7 @@
 		F0D292C928B768C000F5EBBD /* MemoStorageType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoStorageType.swift; sourceTree = "<group>"; };
 		F0D292CE28B7696D00F5EBBD /* RxMemo.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = RxMemo.xcdatamodel; sourceTree = "<group>"; };
 		F0D292D028B7698700F5EBBD /* MemoryStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoryStorage.swift; sourceTree = "<group>"; };
+		F0D292D328B774AD00F5EBBD /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,6 +111,7 @@
 			isa = PBXGroup;
 			children = (
 				F0D292B928B7393B00F5EBBD /* LaunchScreen.storyboard */,
+				F0D292D328B774AD00F5EBBD /* ViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -271,6 +274,7 @@
 				F0D292CF28B7696D00F5EBBD /* RxMemo.xcdatamodeld in Sources */,
 				F0D292C828B766EC00F5EBBD /* Memo.swift in Sources */,
 				F0D292CA28B768C000F5EBBD /* MemoStorageType.swift in Sources */,
+				F0D292D428B774AD00F5EBBD /* ViewController.swift in Sources */,
 				F0D292AF28B7393900F5EBBD /* AppDelegate.swift in Sources */,
 				F0D292B128B7393900F5EBBD /* SceneDelegate.swift in Sources */,
 			);
