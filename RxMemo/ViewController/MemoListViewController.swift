@@ -16,7 +16,19 @@ class MemoListViewController: UIViewController, ViewModelBindableType {
     var viewModel: MemoListViewModel!
     
     func bindViewModel() {
+        viewModel.title
+            .drive(navigationItem.rx.title)
+            .disposed(by: bag)
         
+        viewModel.memoList
+            .bind(
+                to: memoListTableView.rx.items(
+                    cellIdentifier: "cell",
+                    cellType: MemoListTableViewCell.self)
+            ) { row, memo, cell in
+                cell.fetchData(labelTitle: memo.content)
+            }
+            .disposed(by: bag)
     }
     
     private var memoListTableView: UITableView = {
