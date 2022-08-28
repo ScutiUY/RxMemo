@@ -13,14 +13,21 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
+        
         guard let windowScene = (scene as? UIWindowScene) else { return }
         window = UIWindow(windowScene: windowScene) // SceneDelegate의 프로퍼티에 설정해줌
+        
         let mainViewController = MemoListViewController() // 맨 처음 보여줄 ViewController
-        let navController = UINavigationController(rootViewController: mainViewController)
-        navController.navigationBar.prefersLargeTitles = true
-        navController.navigationItem.largeTitleDisplayMode = .always
-        window?.rootViewController = navController
+        window?.rootViewController = mainViewController
         window?.makeKeyAndVisible()
+        
+        let storage = MemoryStorage()
+        let coordinator = SceneCoordinator(window: window!)
+        let listViewModel = MemoListViewModel(title: "나의 메모", sceneCoordinator: coordinator, storage: storage)
+        let listScene = Scene.list(listViewModel)
+        
+        coordinator.transition(to: listScene, using: .root, animated: false)
+        
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {
