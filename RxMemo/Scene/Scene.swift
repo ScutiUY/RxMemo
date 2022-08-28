@@ -19,7 +19,8 @@ extension Scene {
         case .list(let memoListViewModel):
             var listVC = MemoListViewController()
             let nav = UINavigationController(rootViewController: listVC)
-            
+            nav.navigationBar.prefersLargeTitles = true
+            nav.navigationItem.largeTitleDisplayMode = .always
             DispatchQueue.main.async {
                 listVC.bind(viewModel: memoListViewModel)
             }
