@@ -19,20 +19,25 @@ extension Scene {
         case .list(let memoListViewModel):
             var listVC = MemoListViewController()
             let nav = UINavigationController(rootViewController: listVC)
-            listVC.bind(viewModel: memoListViewModel)
+            
+            DispatchQueue.main.async {
+                listVC.bind(viewModel: memoListViewModel)
+            }
             
             return nav
             
         case .detail(let memoDetailViewModel):
             var detailVC = MemoDetailViewController()
-            detailVC.bind(viewModel: memoDetailViewModel)
-            
+            DispatchQueue.main.async {
+                detailVC.bind(viewModel: memoDetailViewModel)
+            }
             return detailVC
             
         case .compose(let memoComposeViewModel):
             var composeVC = MemoComposeViewController()
-            composeVC.bind(viewModel: memoComposeViewModel)
-            
+            DispatchQueue.main.async {
+                composeVC.bind(viewModel: memoComposeViewModel)
+            }
             return composeVC
         }
     }
