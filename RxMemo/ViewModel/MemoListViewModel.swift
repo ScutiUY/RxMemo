@@ -11,6 +11,6 @@ import RxCocoa
 
 class MemoListViewModel: CommonViewModel {
     var memoList: Observable<[Memo]> {
-        return storage.memoList()
+        return storage.memoList() // CommonViewModel의 storage 프로퍼티
     }
 }
