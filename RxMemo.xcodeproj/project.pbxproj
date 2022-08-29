@@ -28,6 +28,7 @@
 		F0D292E628B7842100F5EBBD /* SceneCoordinatorType.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0D292E528B7842100F5EBBD /* SceneCoordinatorType.swift */; };
 		F0D292E828B784A600F5EBBD /* SceneCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0D292E728B784A600F5EBBD /* SceneCoordinator.swift */; };
 		F0D292EA28B78B1400F5EBBD /* CommonViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0D292E928B78B1400F5EBBD /* CommonViewModel.swift */; };
+		F0F4C02628BC27CF00C631CA /* MemoListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0F4C02528BC27CF00C631CA /* MemoListTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -56,6 +57,7 @@
 		F0D292E528B7842100F5EBBD /* SceneCoordinatorType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneCoordinatorType.swift; sourceTree = "<group>"; };
 		F0D292E728B784A600F5EBBD /* SceneCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneCoordinator.swift; sourceTree = "<group>"; };
 		F0D292E928B78B1400F5EBBD /* CommonViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonViewModel.swift; sourceTree = "<group>"; };
+		F0F4C02528BC27CF00C631CA /* MemoListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoListTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -136,6 +138,7 @@
 				F0D292D328B774AD00F5EBBD /* MemoListViewController.swift */,
 				F0D292D528B7762B00F5EBBD /* MemoDetailViewController.swift */,
 				F0D292D728B7765600F5EBBD /* MemoComposeViewController.swift */,
+				F0F4C02528BC27CF00C631CA /* MemoListTableViewCell.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -308,6 +311,7 @@
 				F0D292E828B784A600F5EBBD /* SceneCoordinator.swift in Sources */,
 				F0D292E428B77D8400F5EBBD /* Scene.swift in Sources */,
 				F0D292D628B7762B00F5EBBD /* MemoDetailViewController.swift in Sources */,
+				F0F4C02628BC27CF00C631CA /* MemoListTableViewCell.swift in Sources */,
 				F0D292CF28B7696D00F5EBBD /* RxMemo.xcdatamodeld in Sources */,
 				F0D292C828B766EC00F5EBBD /* Memo.swift in Sources */,
 				F0D292CA28B768C000F5EBBD /* MemoStorageType.swift in Sources */,
