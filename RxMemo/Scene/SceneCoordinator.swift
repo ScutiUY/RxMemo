@@ -37,12 +37,19 @@ class SceneCoordinator: SceneCoordinatorType {
             
         case .push:
             
-            guard let nav = currentVC.navigationController else {
-                subject.onError(TransitionError.navigationControllerMissing)
-                break
+            if let newNav = currentVC as? UINavigationController {
+                
+                newNav.pushViewController(target, animated: animated)
+                currentVC = target
+            } else {
+                guard let nav = currentVC.navigationController else {
+                    subject.onError(TransitionError.navigationControllerMissing)
+                    break
+                }
+                nav.pushViewController(target, animated: animated)
+                currentVC = target
+
             }
-            nav.pushViewController(target, animated: animated)
-            currentVC = target
             
             subject.onCompleted()
             
