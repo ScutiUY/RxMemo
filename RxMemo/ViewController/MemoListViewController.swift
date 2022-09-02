@@ -15,6 +15,18 @@ class MemoListViewController: UIViewController, ViewModelBindableType {
     
     var viewModel: MemoListViewModel!
     
+    private var memoListTableView: UITableView = {
+        var tableView = UITableView()
+        tableView.register(MemoListTableViewCell.self, forCellReuseIdentifier: "cell")
+        tableView.translatesAutoresizingMaskIntoConstraints = false
+        return tableView
+    }()
+    
+    private var addMemoButton: UIBarButtonItem = {
+        var button = UIBarButtonItem(barButtonSystemItem: .add, target: nil, action: nil)
+        return button
+    }()
+    
     func bindViewModel() {
         viewModel.title
             .drive(navigationItem.rx.title)
@@ -29,24 +41,18 @@ class MemoListViewController: UIViewController, ViewModelBindableType {
                 cell.fetchData(labelTitle: memo.content)
             }
             .disposed(by: bag)
+        
+        addMemoButton.rx.action = viewModel.makeCreateAction()
     }
-    
-    private var memoListTableView: UITableView = {
-        var tableView = UITableView()
-        tableView.register(MemoListTableViewCell.self, forCellReuseIdentifier: "cell")
-        tableView.translatesAutoresizingMaskIntoConstraints = false
-        return tableView
-    }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setLayout()
-        setNaviButton()
     }
     
     private func setLayout() {
+        self.navigationItem.rightBarButtonItem = addMemoButton
         self.view.backgroundColor = .systemBackground
-        
         view.addSubview(memoListTableView)
         
         NSLayoutConstraint.activate([
@@ -56,18 +62,6 @@ class MemoListViewController: UIViewController, ViewModelBindableType {
             memoListTableView.widthAnchor.constraint(equalTo: view.widthAnchor),
         ])
     }
-    
-    private func setNaviButton() {
-        let addMemoButton = UIBarButtonItem(barButtonSystemItem: .add, target: nil, action: nil)
-        self.navigationItem.rightBarButtonItem = addMemoButton
-        
-        addMemoButton.rx.tap
-            .bind {
-                let composeVC = MemoComposeViewController()
-                self.navigationController?.pushViewController(composeVC, animated: true)
-            }.disposed(by: bag)
-    }
-    
     
 
 }
