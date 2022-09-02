@@ -6,19 +6,71 @@
 //
 
 import UIKit
+import RxSwift
+import RxCocoa
+import Action
 
 class MemoComposeViewController: UIViewController, ViewModelBindableType {
     
+    let disposeBag = DisposeBag()
+    
     var viewModel: MemoComposeViewModel!
     
-    func bindViewModel() {
+    private var cancelButton: UIBarButtonItem = {
+        var button = UIBarButtonItem(barButtonSystemItem: .cancel, target: MemoComposeViewController.self, action: nil)
+        return button
+    }()
+    
+    private var saveButton: UIBarButtonItem = {
+        var button = UIBarButtonItem(barButtonSystemItem: .save, target: MemoComposeViewController.self, action: nil)
+        return button
+    }()
+
+    private var memoTextView: UITextView = {
+        var textView = UITextView()
         
+        return textView
+    }()
+    
+    func bindViewModel() {
+        viewModel.title
+            .drive(navigationItem.rx.title)
+            .disposed(by: disposeBag)
+        
+        viewModel.initialText
+            .drive(memoTextView.rx.text)
+            .disposed(by: disposeBag)
+        
+        cancelButton.rx.action = viewModel.cancelAction
+        
+        saveButton.rx.tap
+            .throttle(.milliseconds(500), scheduler: MainScheduler.instance)
+            .withLatestFrom(memoTextView.rx.text.orEmpty)
+            .bind(to: viewModel.saveAction.inputs)
+            .disposed(by: disposeBag)
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.title = "새 메모"
-        // Do any additional setup after loading the view.
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        memoTextView.becomeFirstResponder()
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        if memoTextView.isFirstResponder {
+            memoTextView.resignFirstResponder()
+        }
+    }
+    
+    private func setNavigationBarButton() {
+        
+        self.navigationItem.leftBarButtonItem = cancelButton
+        self.navigationItem.rightBarButtonItem = saveButton
+        
     }
     
 }
