@@ -52,6 +52,8 @@ class MemoComposeViewController: UIViewController, ViewModelBindableType {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setLayout()
+        view.backgroundColor = .systemBackground
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -66,11 +68,20 @@ class MemoComposeViewController: UIViewController, ViewModelBindableType {
         }
     }
     
-    private func setNavigationBarButton() {
+    private func setLayout() {
         
         self.navigationItem.leftBarButtonItem = cancelButton
         self.navigationItem.rightBarButtonItem = saveButton
         
+        memoTextView.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(memoTextView)
+        
+        NSLayoutConstraint.activate([
+            memoTextView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+            memoTextView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            memoTextView.widthAnchor.constraint(equalTo: view.widthAnchor),
+            memoTextView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
+        ])
     }
     
 }
