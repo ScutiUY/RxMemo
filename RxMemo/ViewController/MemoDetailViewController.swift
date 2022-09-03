@@ -6,12 +6,20 @@
 //
 
 import UIKit
+import RxSwift
+import RxCocoa
 
 class MemoDetailViewController: UIViewController, ViewModelBindableType {
+    
+    var disposeBag = DisposeBag()
     
     var viewModel: MemoDetailViewModel!
     
     func bindViewModel() {
+        viewModel.title
+            .drive(navigationItem.rx.title)
+            .disposed(by: disposeBag)
+        
         
     }
     
