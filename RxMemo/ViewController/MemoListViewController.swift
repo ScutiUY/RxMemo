@@ -11,7 +11,7 @@ import RxCocoa
 
 class MemoListViewController: UIViewController, ViewModelBindableType {
     
-    private let bag = DisposeBag()
+    private let disposeBag = DisposeBag()
     
     var viewModel: MemoListViewModel!
     
@@ -30,7 +30,7 @@ class MemoListViewController: UIViewController, ViewModelBindableType {
     func bindViewModel() {
         viewModel.title
             .drive(navigationItem.rx.title)
-            .disposed(by: bag)
+            .disposed(by: disposeBag)
         
         viewModel.memoList
             .bind(
@@ -40,9 +40,18 @@ class MemoListViewController: UIViewController, ViewModelBindableType {
             ) { row, memo, cell in
                 cell.fetchData(labelTitle: memo.content)
             }
-            .disposed(by: bag)
+            .disposed(by: disposeBag)
         
         addMemoButton.rx.action = viewModel.makeCreateAction()
+        
+        Observable.zip(memoListTableView.rx.modelSelected(Memo.self), memoListTableView.rx.itemSelected)
+            .withUnretained(self)
+            .do(onNext: { (vc, data) in
+                vc.memoListTableView.deselectRow(at: data.1, animated: true)
+            })
+            .map { $1.0 }
+            .bind(to: viewModel.detailAction.inputs)
+            .disposed(by: disposeBag)
     }
     
     override func viewDidLoad() {
