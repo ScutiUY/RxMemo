@@ -11,15 +11,41 @@ import RxCocoa
 
 class MemoDetailViewController: UIViewController, ViewModelBindableType {
     
-    var disposeBag = DisposeBag()
+    private let disposeBag = DisposeBag()
     
     var viewModel: MemoDetailViewModel!
+    
+    private var memoListTableView: UITableView = {
+        var tableView = UITableView()
+        tableView.register(MemoListTableViewCell.self, forCellReuseIdentifier: "cell")
+        tableView.translatesAutoresizingMaskIntoConstraints = false
+        return tableView
+    }()
+    
+    private var bottomToolbar: UIToolbar = {
+        var toolBar = UIToolbar()
+        return toolBar
+    }()
+    
+    private var deleteButton: UIBarButtonItem = {
+        var deleteButton = UIBarButtonItem(barButtonSystemItem: .trash, target: nil, action: nil)
+        return deleteButton
+    }()
+    
+    private var composeButton: UIBarButtonItem = {
+        var composeButton = UIBarButtonItem(barButtonSystemItem: .compose, target: nil, action: nil)
+        return composeButton
+    }()
+    
+    private var shareButton: UIBarButtonItem = {
+        var shareButton = UIBarButtonItem(barButtonSystemItem: .action, target: nil, action: nil)
+        return shareButton
+    }()
     
     func bindViewModel() {
         viewModel.title
             .drive(navigationItem.rx.title)
             .disposed(by: disposeBag)
-        
         
     }
     
