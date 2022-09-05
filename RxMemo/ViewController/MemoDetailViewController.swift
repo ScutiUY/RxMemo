@@ -15,10 +15,13 @@ class MemoDetailViewController: UIViewController, ViewModelBindableType {
     
     var viewModel: MemoDetailViewModel!
     
-    private var memoListTableView: UITableView = {
+    private var contentTableView: UITableView = {
         var tableView = UITableView()
-        tableView.register(MemoListTableViewCell.self, forCellReuseIdentifier: "cell")
+        tableView.register(MemoContentTableViewCell.self, forCellReuseIdentifier: "contentCell")
+        tableView.register(MemoDateTableViewCell.self, forCellReuseIdentifier: "dateCell")
         tableView.translatesAutoresizingMaskIntoConstraints = false
+        tableView.allowsSelection = false
+        tableView.separatorStyle = .none
         return tableView
     }()
     
@@ -47,6 +50,22 @@ class MemoDetailViewController: UIViewController, ViewModelBindableType {
             .drive(navigationItem.rx.title)
             .disposed(by: disposeBag)
         
+        viewModel.contents
+            .bind(to: contentTableView.rx.items) { tableView, row, value in
+                switch row {
+                case 0:
+                    let cell = tableView.dequeueReusableCell(withIdentifier: "contentCell") as! MemoListTableViewCell
+                    cell.fetchData(labelTitle: value)
+                    return cell
+                case 1:
+                    let cell = tableView.dequeueReusableCell(withIdentifier: "dateCell") as! MemoDateTableViewCell
+                    cell.fetchData(labelTitle: value)
+                    return cell
+                default:
+                    fatalError()
+                }
+            }
+            .disposed(by: disposeBag)
     }
     
     override func viewDidLoad() {
