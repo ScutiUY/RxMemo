@@ -12,7 +12,7 @@ import Action
 
 class MemoComposeViewController: UIViewController, ViewModelBindableType {
     
-    let disposeBag = DisposeBag()
+    private let disposeBag = DisposeBag()
     
     var viewModel: MemoComposeViewModel!
     
