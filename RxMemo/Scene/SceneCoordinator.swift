@@ -48,6 +48,13 @@ class SceneCoordinator: SceneCoordinatorType {
                 break
             }
             
+            nav.rx.willShow
+                .withUnretained(self)
+                .subscribe(onNext: { (coordinator, evt) in
+                    coordinator.currentVC = evt.viewController.sceneViewController
+                })
+                .disposed(by: bag)
+            
             nav.pushViewController(target, animated: animated)
             currentVC = target.sceneViewController
             
