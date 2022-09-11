@@ -71,7 +71,6 @@ class MemoDetailViewController: UIViewController, ViewModelBindableType {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "메모 보기"
-        // Do any additional setup after loading the view.
     }
 
 }
