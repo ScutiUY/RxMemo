@@ -66,6 +66,8 @@ class MemoDetailViewController: UIViewController, ViewModelBindableType {
                 }
             }
             .disposed(by: disposeBag)
+        
+        composeButton.rx.action = viewModel.makeEditAction()
     }
     
     override func viewDidLoad() {
